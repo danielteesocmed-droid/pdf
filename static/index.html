@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DocFetch — upload for LLMs</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>DocFetch</h1>
+    <p class="sub">Upload a PDF/DOCX/TXT and get a plain-text URL an LLM can read.</p>
+  </header>
+
+  <section class="card">
+    <label for="key">API key <span class="hint">(only if the server has <code>API_KEY</code> set)</span></label>
+    <input id="key" type="password" placeholder="X-API-Key" autocomplete="off">
+
+    <div id="drop" class="drop">
+      <input id="file" type="file" hidden
+             accept=".pdf,.docx,.txt,.md,.csv,.json,.xml,.yaml,.yml,.html,.htm,.log">
+      <p><strong>Drop a file here</strong> or <button id="pick" type="button" class="link">browse</button></p>
+      <p id="picked" class="picked"></p>
+    </div>
+
+    <button id="upload" type="button" disabled>Upload</button>
+    <div id="status" class="status" hidden></div>
+  </section>
+
+  <section class="card">
+    <div class="row">
+      <h2>Uploaded documents</h2>
+      <button id="refresh" type="button" class="ghost">Refresh</button>
+    </div>
+    <ul id="list" class="list"></ul>
+  </section>
+
+  <footer>
+    <a href="/llms.txt" target="_blank">/llms.txt</a> ·
+    <a href="/docs" target="_blank">/docs</a> ·
+    <a href="/health" target="_blank">/health</a>
+  </footer>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
